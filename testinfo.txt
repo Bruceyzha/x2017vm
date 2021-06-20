@@ -1,0 +1,48 @@
+COMP2017 Assessment 2 testcase brief
+The tests contain 9 testcases which mainly focus on the error handle.
+
+1. wrong_name test
+The test will input a wrong name which is not exist.
+2.multiple_args test
+The test will input multiple arguments, and the vm only
+accept 1 argument.
+3.pc_overflow test
+asm:
+FUNC LABEL 0
+    MOV REG 0 VAL 200
+    ADD REG 7 REG 0
+    RET 
+Set the program conter to 200, but the asm only have 3 
+instructions, that will lead program conter overflow.
+4.no_entry test
+asm:
+FUNC LABEL 1
+    MOV REG 0 VAL 200
+    ADD REG 1 REG 0
+    RET
+There are not existed label 0, therefore there are no entry.
+5.wrong_bin1 test
+The binary file has noise.
+6. wrong_reg test
+asm:
+FUNC LABEL 0
+    MOV REG 4 VAL 200
+    ADD REG 1 REG 0
+    RET
+The reg4-6 can not access.
+7.wrong_call test
+asm:
+FUNC LABEL 0
+    CAL VAL 7
+    RET
+There are not function 7 in this asm.
+8.no_return test
+asm:
+FUNC LABEL 0
+    MOV REG 0 VAL 200
+The function do not have return.
+9.
+FUNC LABEL 0
+    MOV VAL 0 VAL 200
+    RET
+The MOV instruction can not accept val in first arg.
